@@ -1,0 +1,8 @@
+USE blog;
+
+ALTER TABLE users
+ADD role ENUM('admin', 'editor') DEFAULT 'editor';
+SELECT id, username, role FROM users;
+INSERT INTO users (username, password, role)
+VALUES ('admin_user', '$2y$10$EXAMPLEHASHEDPASSWORD', 'admin');
+UPDATE users SET role = 'admin' WHERE username = 'username';
